@@ -2,4 +2,16 @@ package menus;
 
 import flixel.FlxState;
 
-class TitleState extends FlxState {}
+class TitleState extends FlxState
+{
+	override function create()
+	{
+		Global.resetWindowTitle();
+		super.create();
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+	}
+}

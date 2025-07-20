@@ -2,6 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
+import flixel.util.FlxTimer;
 import menus.TitleState;
 
 class InitState extends FlxState
@@ -12,6 +13,10 @@ class InitState extends FlxState
 
 		Global.resizeWindow();
 		Global.setWindowTitle('');
-		FlxG.switchState(() -> new TitleState());
+		FlxTimer.wait(5, () ->
+		{
+			Global.setWindowTitle('Thank you for your patience');
+			FlxG.switchState(() -> new TitleState());
+		});
 	}
 }
