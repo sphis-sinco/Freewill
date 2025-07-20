@@ -15,6 +15,7 @@ class Global
 		Lib.application.window.x = Std.int((resolutionX - Lib.application.window.width) / 2);
 		Lib.application.window.y = Std.int((resolutionY - Lib.application.window.height) / 2);
 	}
+
 	public static var defaultWindowTitle:String = "Freewill";
 
 	public static function setWindowTitle(value:String):Void
