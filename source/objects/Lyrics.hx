@@ -8,8 +8,8 @@ import openfl.text.TextFormat;
 
 class Lyrics extends Sprite
 {
-	static var lyricsShadow:TextField;
-	static var lyrics:TextField;
+	public var lyricsShadow:TextField;
+	public var lyrics:TextField;
 
 	public function new()
 	{
@@ -58,6 +58,8 @@ class Lyrics extends Sprite
 
 	public function displayLyrics(value:String)
 	{
+		trace('displayLyrics(value: $value)');
+
 		lyrics.text = value.toUpperCase();
 		lyricsShadow.text = value.toUpperCase();
 	}
