@@ -33,6 +33,7 @@ class CreditsMenu extends FlxState
 		super.create();
 
 		pushEntriesToCredits();
+		Global.resizeWindow();
 
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
@@ -135,7 +136,7 @@ class CreditsMenu extends FlxState
 		endCredits = new FlxSprite(20, 150).loadGraphic(Paths.image("menus/credits/replayCreditsRoll"));
 		endCredits.scale.set(2.6, 2.6);
 		endCredits.updateHitbox();
-		add(endCredits);
+		// add(endCredits);
 
 		add(menuTitle);
 
@@ -157,7 +158,7 @@ class CreditsMenu extends FlxState
 		changeSelection(0);
 	}
 
-	function pushEntriesToCredits(folder:String)
+	function pushEntriesToCredits()
 	{
 		var entriesFile:String = null;
 		entriesFile = Paths.txt('credits');
