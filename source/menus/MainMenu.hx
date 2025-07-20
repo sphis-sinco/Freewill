@@ -2,7 +2,7 @@ package menus;
 
 class MainMenu extends FlxState
 {
-	var menuItems:Array<Array<Dynamic>> = [["SETTINGS", true], ["CREDITS", false,]]; // Item, Unlocked by default
+	var menuItems:Array<Array<Dynamic>> = [['SETTINGS', true], ['CREDITS', false,]]; // Item, Unlocked by default
 	var menuItemsText:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
 	var bg:FlxSprite;
@@ -15,13 +15,13 @@ class MainMenu extends FlxState
 		bg = new FlxSprite().loadGraphic(Paths.image('menus/main/bg'));
 		bg.setGraphicSize(FlxG.width, FlxG.height);
 
-		selector = new FlxSprite().loadGraphic(Paths.image("menus/main/selector"));
+		selector = new FlxSprite().loadGraphic(Paths.image('menus/main/selector'));
 
 		menuTitle = new FlxSprite();
-		menuTitle.frames = Paths.getSparrowAtlas("menus/main/menuTitles");
-		menuTitle.animation.addByPrefix("mainMenu", "mainMenu", 1, true);
-		menuTitle.animation.addByPrefix("dataSelect", "dataSelect", 1, true);
-		menuTitle.animation.play("mainMenu");
+		menuTitle.frames = Paths.getSparrowAtlas('menus/main/menuTitles');
+		menuTitle.animation.addByPrefix('mainMenu', 'mainMenu', 1, true);
+		menuTitle.animation.addByPrefix('dataSelect', 'dataSelect', 1, true);
+		menuTitle.animation.play('mainMenu');
 
 		for (i in [bg, menuTitle, selector])
 		{
@@ -35,7 +35,7 @@ class MainMenu extends FlxState
 		for (i in 0...menuItems.length)
 		{
 			var menuText = new FlxText(0, 0, FlxG.width, menuItems[i][0]);
-			menuText.setFormat(Paths.font("sonic2HUD.ttf"), 55, menuItems[i][1] ? 0xFFFFFFFF : 0xFFB4B4B4, "center", FlxTextBorderStyle.SHADOW, 0xFF000000);
+			menuText.setFormat(Paths.font('sonic2HUD.ttf'), 55, menuItems[i][1] ? 0xFFFFFFFF : 0xFFB4B4B4, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
 			menuText.shadowOffset.x += 1;
 			menuText.shadowOffset.y += 3;
 			menuText.screenCenter();
@@ -47,7 +47,7 @@ class MainMenu extends FlxState
 		add(menuItemsText);
 
 		changeSelection(0, true);
-		Paths.sound("confirmMenu");
+		Paths.sound('confirmMenu');
 
 		super.create();
 	}
@@ -65,7 +65,7 @@ class MainMenu extends FlxState
 	function changeSelection(change, silent)
 	{
 		if (!silent)
-			FlxG.sound.play(Paths.sound("scrollMenu"), 0.8);
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.8);
 
 		curSelected += change;
 		if (curSelected > menuItems.length - 1)

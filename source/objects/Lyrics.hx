@@ -23,10 +23,10 @@ class Lyrics extends Sprite
 		lyricsShadow.x = 0;
 		lyricsShadow.y = 603; // 600 + 3
 		lyricsShadow.border = false;
-		lyricsShadow.antiAliasType = "advanced";
+		lyricsShadow.antiAliasType = 'advanced';
 		lyricsShadow.embedFonts = true;
-		lyricsShadow.defaultTextFormat = new TextFormat("sonic2HUD.ttf", 48, 0x000000, null, null, null, null, null, "center");
-		lyricsShadow.text = "";
+		lyricsShadow.defaultTextFormat = new TextFormat('sonic2HUD.ttf', 48, 0x000000, null, null, null, null, null, 'center');
+		lyricsShadow.text = '';
 		addChild(lyricsShadow);
 
 		lyrics = new TextField();
@@ -35,10 +35,10 @@ class Lyrics extends Sprite
 		lyrics.x = 0;
 		lyrics.y = 600;
 		lyrics.border = false;
-		lyrics.antiAliasType = "advanced";
+		lyrics.antiAliasType = 'advanced';
 		lyrics.embedFonts = true;
-		lyrics.defaultTextFormat = new TextFormat("sonic2HUD.ttf", 48, 0xFFFFFF, null, null, null, null, null, "center");
-		lyrics.text = "";
+		lyrics.defaultTextFormat = new TextFormat('sonic2HUD.ttf', 48, 0xFFFFFF, null, null, null, null, null, 'center');
+		lyrics.text = '';
 		addChild(lyrics);
 	}
 

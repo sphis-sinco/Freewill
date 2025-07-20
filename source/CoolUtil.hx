@@ -3,7 +3,7 @@ class CoolUtil
 	public static function checkForUpdates(url:String = null):String
 	{
 		if (url == null || url.length == 0)
-			url = "https://raw.githubusercontent.com/sphis-sinco/Freewill/main/gitVersion.txt";
+			url = 'https://raw.githubusercontent.com/sphis-sinco/Freewill/main/gitVersion.txt';
 		var version:String = Lib.application.meta.get('version');
 		trace('checking for updates...');
 		var http = new haxe.Http(url);
@@ -152,7 +152,7 @@ class CoolUtil
 		Sys.command(command, [folder]);
 		trace('$command $folder');
 		#else
-		FlxG.error("Platform is not supported for CoolUtil.openFolder");
+		FlxG.error('Platform is not supported for CoolUtil.openFolder');
 		#end
 	}
 
@@ -169,7 +169,7 @@ class CoolUtil
 	inline public static function getSavePath():String
 	{
 		final company:String = FlxG.stage.application.meta.get('company');
-		// #if (flixel < "5.0.0") return company; #else
+		// #if (flixel < '5.0.0') return company; #else
 		return '${company}/${flixel.util.FlxSave.validate(FlxG.stage.application.meta.get('file'))}';
 		// #end
 	}

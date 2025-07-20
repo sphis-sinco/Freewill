@@ -143,7 +143,7 @@ class Paths
 		return getSharedPath(file);
 	}
 
-	inline static public function getFolderPath(file:String, folder = "shared")
+	inline static public function getFolderPath(file:String, folder = 'shared')
 		return 'assets/$folder/$file';
 
 	inline public static function getSharedPath(file:String = '')
@@ -345,7 +345,7 @@ class Paths
 	inline static public function formatToSongPath(path:String)
 	{
 		final invalidChars = ~/[~&;:<>#\s]/g;
-		final hideChars = ~/[.,'"%?!]/g;
+		final hideChars = ~/[.,''%?!]/g;
 
 		return hideChars.replace(invalidChars.replace(path, '-'), '').trim().toLowerCase();
 	}
