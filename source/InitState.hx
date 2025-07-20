@@ -5,7 +5,6 @@ class InitState extends FlxState
 	override function create()
 	{
 		super.create();
-
 		FlxSprite.defaultAntialiasing = false;
 
 		Paths.sound('cancelMenu');

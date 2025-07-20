@@ -10,6 +10,10 @@ class MainMenu extends FlxState
 	var curSelected:Int = 0;
 	var selector:FlxSprite;
 
+	var secretIndex:Int = 0;
+
+	public static var secretUnlocked:Bool = false;
+
 	override function create()
 	{
 		bg = new FlxSprite().loadGraphic(Paths.image('menus/main/bg'));
@@ -36,7 +40,7 @@ class MainMenu extends FlxState
 		{
 			var menuText = new FlxText(0, 0, FlxG.width, menuItems[i][0]);
 			menuText.setFormat(Paths.font('sonic2HUD.ttf'), 55, menuItems[i][1] ? 0xFFFFFFFF : 0xFFB4B4B4, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
-			menuText.shadowOffset.x += 1;
+			menuText.shadowOffset.x += 3;
 			menuText.shadowOffset.y += 3;
 			menuText.screenCenter();
 			menuText.y += i * 70 - 80;
@@ -47,6 +51,18 @@ class MainMenu extends FlxState
 		add(menuItemsText);
 
 		changeSelection(0, true);
+
+		if (secretUnlocked)
+		{
+			FlxG.sound.play(Paths.sound('confirmMenu-glitch'), 1.0);
+			Global.displayLyrics('Secret Unlocked');
+
+			add(Global.lyricsShadow);
+			add(Global.lyrics);
+
+			Global.centerLyrics(X);
+			Global.setLyricPosition(Global.lyrics.x, FlxG.height - Global.lyrics.height);
+		}
 
 		super.create();
 	}
@@ -74,6 +90,48 @@ class MainMenu extends FlxState
 				default:
 					FlxG.sound.play(Paths.sound('cancelMenu'), 0.8);
 					trace('$selVal has no implementation');
+			}
+		}
+
+		if (FlxG.keys.anyJustReleased([LEFT, DOWN, RIGHT, UP]))
+		{
+			if (secretUnlocked)
+				return;
+
+			var reset = false;
+
+			final LEFT = FlxG.keys.justReleased.LEFT;
+			final DOWN = FlxG.keys.justReleased.DOWN;
+			final UP = FlxG.keys.justReleased.UP;
+			final RIGHT = FlxG.keys.justReleased.RIGHT;
+
+			switch (secretIndex)
+			{
+				case 0, 2:
+					reset = !LEFT;
+				case 1, 3:
+					reset = !RIGHT;
+				case 4, 6:
+					reset = !UP;
+				case 5, 7:
+					reset = !DOWN;
+			}
+
+			if (reset)
+			{
+				trace('secret index reset');
+				secretIndex = 0;
+			}
+			else
+			{
+				trace('secret index increase');
+				secretIndex++;
+			}
+
+			if (secretIndex == 8)
+			{
+				secretUnlocked = true;
+				FlxG.resetState();
 			}
 		}
 	}
