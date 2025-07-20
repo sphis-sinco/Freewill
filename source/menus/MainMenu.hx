@@ -39,8 +39,8 @@ class MainMenu extends FlxState
 		for (i in 0...menuItems.length)
 		{
 			var menuText = new FlxText(0, 0, FlxG.width, menuItems[i][0]);
-			menuText.setFormat(Paths.font('sonic2HUD.ttf'), 55, menuItems[i][1] ? 0xFFFFFFFF : 0xFFB4B4B4, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
-			menuText.shadowOffset.x += 3;
+			menuText.setFormat(Paths.font('sonic2HUD.ttf'), 48, menuItems[i][1] ? 0xFFFFFFFF : 0xFFB4B4B4, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
+			menuText.shadowOffset.x += 0;
 			menuText.shadowOffset.y += 3;
 			menuText.screenCenter();
 			menuText.y += i * 70 - 80;
@@ -57,7 +57,6 @@ class MainMenu extends FlxState
 			FlxG.sound.play(Paths.sound('confirmMenu-glitch'), 1.0);
 			Global.displayLyrics('Secret Unlocked');
 
-			add(Global.lyricsShadow);
 			add(Global.lyrics);
 
 			Global.centerLyrics(X);

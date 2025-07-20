@@ -20,21 +20,15 @@ class Global
 		Lib.application.window.title = defaultWindowTitle;
 	}
 
-	public static var lyricsShadow:FlxText;
 	public static var lyrics:FlxText;
 
 	public static function initLyrics()
 	{
-		lyricsShadow = new FlxText(3, FlxG.height + 3, FlxG.width, '', 48);
 		lyrics = new FlxText(0, FlxG.height, FlxG.width, '', 48);
-
-		lyricsShadow.font = Paths.font('sonic2HUD.ttf');
-		lyrics.font = Paths.font('sonic2HUD.ttf');
-
-		lyricsShadow.alignment = CENTER;
+		lyrics.setFormat(Paths.font('sonic2HUD.ttf'), 48, 0xFFFFFFFF, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
+		lyrics.shadowOffset.x += 0;
+		lyrics.shadowOffset.y += 3;
 		lyrics.alignment = CENTER;
-
-		lyricsShadow.color = 0x000000;
 	}
 
 	public static function centerLyrics(axes:FlxAxes = XY)
@@ -44,16 +38,11 @@ class Global
 
 		if (axes.y)
 			lyrics.y = (FlxG.height - lyrics.height) / 2;
-
-		setLyricPosition(lyrics.x, lyrics.y);
 	}
 
 	public static function setLyricPosition(x:Float, y:Float)
 	{
 		lyrics.setPosition(x, y);
-
-		lyricsShadow.x = lyrics.x + 3;
-		lyricsShadow.y = lyrics.y + 3;
 	}
 
 	public static function displayLyrics(value:String)
@@ -64,7 +53,6 @@ class Global
 			initLyrics();
 
 		lyrics.text = value.toUpperCase();
-		lyricsShadow.text = value.toUpperCase();
 	}
 
 	public static function clearLyrics()
@@ -75,6 +63,5 @@ class Global
 	public static function destroyLyrics()
 	{
 		lyrics = null;
-		lyricsShadow = null;
 	}
 }
