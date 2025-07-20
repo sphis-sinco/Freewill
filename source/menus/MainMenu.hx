@@ -2,7 +2,7 @@ package menus;
 
 class MainMenu extends FlxState
 {
-	var menuItems:Array<Array<Dynamic>> = [['SETTINGS', true], ['CREDITS', false,]]; // Item, Unlocked by default
+	var menuItems:Array<Array<Dynamic>> = [['LEVELS', false], ['SETTINGS', false], ['CREDITS', false], ['GALLERY', false]]; // Item, Unlocked by default
 	var menuItemsText:FlxTypedGroup<FlxText> = new FlxTypedGroup<FlxText>();
 
 	var bg:FlxSprite;
@@ -47,7 +47,6 @@ class MainMenu extends FlxState
 		add(menuItemsText);
 
 		changeSelection(0, true);
-		Paths.sound('confirmMenu-glitch');
 
 		super.create();
 	}
@@ -60,6 +59,23 @@ class MainMenu extends FlxState
 			changeSelection(-1, false);
 		if (Controls.UI_MOVE_DOWN)
 			changeSelection(1, false);
+		if (Controls.UI_SELECT)
+		{
+			if (!menuItems[curSelected][1])
+			{
+				FlxG.sound.play(Paths.sound('cancelMenu'), 0.8);
+				return;
+			}
+
+			final selVal = menuItems[curSelected][0];
+
+			switch (selVal)
+			{
+				default:
+					FlxG.sound.play(Paths.sound('cancelMenu'), 0.8);
+					trace('$selVal has no implementation');
+			}
+		}
 	}
 
 	function changeSelection(change, silent)
