@@ -28,8 +28,9 @@ class CreditsMenu extends FlxState
 
 	// entry format: name::what they did::bluesky link::youtube link::twitter link
 
-	function onCreate()
+	override function create()
 	{
+		super.create();
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
 		FlxG.mouse.visible = false;
@@ -245,8 +246,9 @@ class CreditsMenu extends FlxState
 		}
 	}
 
-	function onUpdate(e)
+	override function update(elapsed:Float)
 	{
+		super.update(elapsed);
 		customCursor.x = FlxG.mouse.x;
 		customCursor.y = FlxG.mouse.y;
 
