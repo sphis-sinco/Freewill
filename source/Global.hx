@@ -24,6 +24,9 @@ class Global
 
 	public static function initLyrics()
 	{
+		if (lyrics != null)
+			destroyLyrics();
+
 		lyrics = new FlxText(0, FlxG.height, FlxG.width, '', 48);
 		lyrics.setFormat(Paths.font('sonic2HUD.ttf'), 48, 0xFFFFFFFF, 'center', FlxTextBorderStyle.SHADOW, 0xFF000000);
 		lyrics.shadowOffset.x += 0;
