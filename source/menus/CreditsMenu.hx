@@ -1,19 +1,7 @@
 package menus;
 
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.FlxState;
 import flixel.addons.display.FlxBackdrop;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.text.FlxText;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
 import flixel.util.typeLimit.NextState;
-import sys.FileSystem;
-import sys.io.File;
-
-using StringTools;
 
 class CreditsMenu extends FlxState
 {

@@ -1,7 +1,5 @@
 package objects;
 
-import flixel.FlxG;
-import flixel.util.FlxAxes;
 import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFormat;

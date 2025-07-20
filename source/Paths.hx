@@ -1,22 +1,7 @@
 import flash.media.Sound;
-import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
-import flixel.math.FlxRect;
 import flixel.system.FlxAssets;
-import haxe.Json;
-import lime.utils.Assets;
-import openfl.display.BitmapData;
-import openfl.display3D.textures.RectangleTexture;
-import openfl.geom.Rectangle;
-import openfl.system.System;
-import openfl.utils.AssetType;
-import openfl.utils.Assets as OpenFlAssets;
-import sys.FileSystem;
-import sys.io.File;
-
-using StringTools;
 
 @:access(openfl.display.BitmapData)
 class Paths

@@ -1,7 +1,3 @@
-import flixel.FlxG;
-import objects.Lyrics;
-import openfl.Lib;
-
 class Global
 {
 	public static var lyricsObject:Lyrics = new Lyrics();

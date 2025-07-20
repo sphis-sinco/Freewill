@@ -1,11 +1,5 @@
 package;
 
-import flixel.FlxG;
-import flixel.FlxState;
-import flixel.util.FlxTimer;
-import menus.CreditsMenu;
-import menus.TitleState;
-
 class InitState extends FlxState
 {
 	override function create()

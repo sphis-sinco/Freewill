@@ -1,12 +1,3 @@
-import flixel.FlxG;
-import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import lime.utils.Assets as LimeAssets;
-import openfl.Lib;
-import openfl.utils.Assets;
-
-using StringTools;
-
 class CoolUtil
 {
 	public static function checkForUpdates(url:String = null):String
