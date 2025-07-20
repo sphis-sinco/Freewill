@@ -31,6 +31,9 @@ class CreditsMenu extends FlxState
 	override function create()
 	{
 		super.create();
+
+		pushEntriesToCredits();
+
 		FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
 		FlxG.mouse.visible = false;
@@ -169,6 +172,8 @@ class CreditsMenu extends FlxState
 				entries.push(arr);
 			}
 		}
+
+		trace(entries);
 	}
 
 	function changeSelection(change)

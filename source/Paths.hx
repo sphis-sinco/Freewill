@@ -147,7 +147,7 @@ class Paths
 		return 'assets/$folder/$file';
 
 	inline public static function getSharedPath(file:String = '')
-		return 'assets/shared/$file';
+		return 'assets/$file';
 
 	inline static public function txt(key:String, ?folder:String)
 		return getPath('data/$key.txt', TEXT, folder, true);
