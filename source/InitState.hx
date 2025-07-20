@@ -6,6 +6,8 @@ class InitState extends FlxState
 	{
 		super.create();
 
+		FlxSprite.defaultAntialiasing = false;
+
 		CoolUtil.checkForUpdates();
 
 		Global.setWindowTitle('');
