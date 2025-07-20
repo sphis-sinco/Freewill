@@ -10,6 +10,8 @@ class InitState extends FlxState
 	{
 		super.create();
 
+		Global.resizeWindow();
+		Global.setWindowTitle('');
 		FlxG.switchState(() -> new TitleState());
 	}
 }
