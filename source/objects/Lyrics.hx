@@ -17,7 +17,7 @@ class Lyrics extends Sprite
 		init();
 	}
 
-        function init()
+	function init()
 	{
 		lyricsShadow = new TextField();
 		lyricsShadow.width = 1280;
@@ -44,7 +44,7 @@ class Lyrics extends Sprite
 		addChild(lyrics);
 	}
 
-        public function centerLyrics(axes:FlxAxes = XY)
+	public function centerLyrics(axes:FlxAxes = XY)
 	{
 		if (axes.x)
 			lyrics.x = (FlxG.width - lyrics.width) / 2;
@@ -52,8 +52,8 @@ class Lyrics extends Sprite
 		if (axes.y)
 			lyrics.y = (FlxG.height - lyrics.height) / 2;
 
-                lyricsShadow.x = lyrics.x + 3;
-                lyricsShadow.y = lyrics.y + 3;
+		lyricsShadow.x = lyrics.x + 3;
+		lyricsShadow.y = lyrics.y + 3;
 	}
 
 	public function displayLyrics(value:String)
@@ -64,6 +64,12 @@ class Lyrics extends Sprite
 
 	public function clearLyrics()
 	{
-                displayLyrics('');
+		displayLyrics('');
+	}
+
+	public function destroyLyrics()
+	{
+		lyrics = null;
+		lyricsShadow = null;
 	}
 }
