@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.util.FlxTimer;
+import menus.CreditsMenu;
 import menus.TitleState;
 
 class InitState extends FlxState
@@ -11,12 +12,14 @@ class InitState extends FlxState
 	{
 		super.create();
 
+		CoolUtil.checkForUpdates();
+
 		Global.resizeWindow();
 		Global.setWindowTitle('');
 		FlxTimer.wait(5, () ->
 		{
 			Global.setWindowTitle('Thank you for your patience');
-			FlxG.switchState(() -> new TitleState());
+			FlxG.switchState(() -> new CreditsMenu());
 		});
 	}
 }
