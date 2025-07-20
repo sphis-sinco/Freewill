@@ -290,24 +290,16 @@ class Paths
 		var imageLoaded:FlxGraphic = image(key, parentFolder, allowGPU);
 
 		var myXml:Dynamic = getPath('images/$key.xml', TEXT, parentFolder, true);
-		if (OpenFlAssets.exists(myXml) #if MODS_ALLOWED || (FileSystem.exists(myXml) && (useMod = true)) #end)
+		if (OpenFlAssets.exists(myXml))
 		{
-			#if MODS_ALLOWED
-			return FlxAtlasFrames.fromSparrow(imageLoaded, (useMod ? File.getContent(myXml) : myXml));
-			#else
 			return FlxAtlasFrames.fromSparrow(imageLoaded, myXml);
-			#end
 		}
 		else
 		{
 			var myJson:Dynamic = getPath('images/$key.json', TEXT, parentFolder, true);
-			if (OpenFlAssets.exists(myJson) #if MODS_ALLOWED || (FileSystem.exists(myJson) && (useMod = true)) #end)
+			if (OpenFlAssets.exists(myJson))
 			{
-				#if MODS_ALLOWED
-				return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, (useMod ? File.getContent(myJson) : myJson));
-				#else
 				return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, myJson);
-				#end
 			}
 		}
 		return getPackerAtlas(key, parentFolder);
@@ -347,17 +339,7 @@ class Paths
 	inline static public function getAsepriteAtlas(key:String, ?parentFolder:String = null, ?allowGPU:Bool = true):FlxAtlasFrames
 	{
 		var imageLoaded:FlxGraphic = image(key, parentFolder, allowGPU);
-		#if MODS_ALLOWED
-		var jsonExists:Bool = false;
-
-		var json:String = modsImagesJson(key);
-		if (FileSystem.exists(json))
-			jsonExists = true;
-
-		return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, (jsonExists ? File.getContent(json) : getPath('images/$key') + '.json', TEXT, parentFolder));
-		#else
 		return FlxAtlasFrames.fromTexturePackerJson(imageLoaded, getPath('images/$key' + '.json', TEXT, parentFolder));
-		#end
 	}
 
 	inline static public function formatToSongPath(path:String)

@@ -8,12 +8,14 @@ class InitState extends FlxState
 
 		CoolUtil.checkForUpdates();
 
-		Global.resizeWindow();
 		Global.setWindowTitle('');
 		FlxTimer.wait(#if debug 0 #else FlxG.random.float(0, 5) #end, () ->
 		{
 			Global.setWindowTitle('Thank you for your patience');
-			FlxG.switchState(() -> new TitleState());
+
+			Global.resetWindowTitle();
+
+			FlxG.switchState(() -> new MainMenu());
 		});
 	}
 }
