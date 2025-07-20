@@ -8,6 +8,7 @@ class Global
 
 	public static function resizeWindow(width:Int = 820, height:Int = 720) // yoinked from rewrite round 2 LOL
 	{
+		trace('resizeWindow(width: $width, height: $width)');
 		FlxG.resizeWindow(width, height);
 		FlxG.resizeGame(width, height);
 		var resolutionX = Math.ceil(Lib.current.stage.window.display.currentMode.width * Lib.current.stage.window.scale);
@@ -22,6 +23,7 @@ class Global
 	{
 		if (value != "reset")
 		{
+			trace('setWindowTitle(value: $value)');
 			Lib.application.window.title = value;
 		}
 		else
