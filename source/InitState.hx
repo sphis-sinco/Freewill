@@ -8,6 +8,12 @@ class InitState extends FlxState
 
 		FlxSprite.defaultAntialiasing = false;
 
+		Paths.sound('cancelMenu');
+		Paths.sound('scrollMenu-glitch');
+		Paths.sound('confirmMenu-glitch');
+		Paths.sound('scrollMenu');
+		Paths.sound('confirmMenu');
+
 		CoolUtil.checkForUpdates();
 
 		Global.setWindowTitle('');
